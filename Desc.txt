@@ -1,0 +1,12 @@
+Application d'entrainement. 
+
+Contiendra :
+ - Deux front-end ANGULAR : 
+      * Vendeur : IHM permettant de consulter des stocks, de sélectionner un ou plusieurs produits, de réserver les produits, 
+                  de vérifier la présence du client en base, de saisir les données si celui-ci n'est pas connu, d'imprimer le bon de commande ou le devis.
+                  
+      * Responsable : IHM permettant de commander des produits, de consulter les stocks, de consulter les résultats
+      
+ - Deux back-end :
+      * Vendeur avec sécurité basique
+      * Responsable avec sécurité OIDC

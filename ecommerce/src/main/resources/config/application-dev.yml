@@ -10,9 +10,6 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  security:
-    user:
-      password: nopassword
   main:
     allow-bean-definition-overriding: true
     allow-circular-references: true

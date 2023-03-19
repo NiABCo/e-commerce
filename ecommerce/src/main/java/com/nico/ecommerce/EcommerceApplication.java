@@ -1,11 +1,7 @@
 package com.nico.ecommerce;
 
-import com.nico.ecommerce.domain.user.User;
-import com.nico.ecommerce.repository.UserRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class EcommerceApplication {
@@ -23,11 +19,9 @@ public class EcommerceApplication {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository) {
+    CommandLineRunner commandLineRunner(UserService userService) {
         return args -> {
-            userRepository.save(new User("Nicolas Abbadie", "passwordNA", "ROLE_ADMIN", "Directeur"));
-            userRepository.save(new User("Emilie Marenc", "passwordEM", "ROLE_ADMIN", "Responsable Meuble"));
-            userRepository.save(new User("Adrien Pareil", "passwordAP", "ROLE_ADMIN", "Responsable Eelectro-ménager"));
+            userService.postUser(new UserDTO("Nicolas Abbadie", "passwordNA", "ROLE_ADMIN", "Directeur"));
         };
     }*/
 }

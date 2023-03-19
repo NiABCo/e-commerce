@@ -18,6 +18,7 @@ public class ProductsService {
 
     /**
      * Retourne la liste de tous les produits en base
+     *
      * @return Liste de {@link ProductDTO}
      */
     public List<ProductDTO> getAll() {

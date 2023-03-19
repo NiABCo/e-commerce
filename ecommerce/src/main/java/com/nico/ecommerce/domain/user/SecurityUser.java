@@ -30,8 +30,8 @@ public class SecurityUser implements UserDetails {
         return Arrays.stream(user
                         .getRoles()
                         .split(","))
-                        .map(SimpleGrantedAuthority::new)
-                        .toList();
+                .map(SimpleGrantedAuthority::new)
+                .toList();
     }
 
     @Override

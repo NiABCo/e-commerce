@@ -23,17 +23,25 @@ public class User {
     @GeneratedValue
     private Long id;
     private String username;
+
+    private String firstName;
+
+    private String lastName;
     private String password;
     private String roles;
     private String poste;
+    private String profil;
 
     public User() {
     }
 
-    public User(String username, String password, String roles, String poste) {
+    public User(String username, String firstName, String lastName, String password, String roles, String poste, String profil) {
         this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
         this.roles = roles;
         this.poste = poste;
+        this.profil = profil;
     }
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  * REST CONTROLLER lié aux activités d'un responsable
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/responsable")
 public class ResponsableController {
 
     private static Logger LOGGER = LoggerFactory.getLogger(ResponsableController.class);
@@ -42,13 +42,13 @@ public class ResponsableController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<UserDTO> createUser(@RequestBody @Validated UserDTO userDTO) {
         try {
-            LOGGER.info("L'administrateur {} enregistre un nouvel utilisateur au rôle {} du nom de {}",
-                    auth.getPrincipal().toString().toUpperCase(), userDTO.getPoste().toUpperCase(), userDTO.getUsername().toUpperCase());
+            LOGGER.info("L'administrateur {} enregistre un nouvel utilisateur au rôle {} du nom de {} {}",
+                    auth.getPrincipal().toString().toUpperCase(), userDTO.getPoste().toUpperCase(), userDTO.getFirstName().toUpperCase(), userDTO.getLastName().toUpperCase());
             userService.postUser(userDTO);
             return ResponseEntity.ok(userDTO);
         } catch (Exception e) {
-            LOGGER.error("Erreur lors de l'enregistrement du user {} avec le rôle {} par l'administrateur {}",
-                    userDTO.getUsername().toUpperCase(), userDTO.getPoste().toUpperCase(), auth.getPrincipal().toString().toUpperCase());
+            LOGGER.error("Erreur lors de l'enregistrement du user {} {} avec le rôle {} par l'administrateur {}",
+                    userDTO.getFirstName().toUpperCase(), userDTO.getLastName().toUpperCase(), userDTO.getPoste().toUpperCase(), auth.getPrincipal().toString().toUpperCase());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

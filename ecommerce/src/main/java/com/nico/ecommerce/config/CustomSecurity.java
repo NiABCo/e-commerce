@@ -31,6 +31,7 @@ public class CustomSecurity {
                         .anyRequest().authenticated())
                 .userDetailsService(jpaUserDetailsService)
                 .formLogin(Customizer.withDefaults())
+                .httpBasic(Customizer.withDefaults())
                 .build();
     }
 

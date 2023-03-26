@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         Iterator<User> iterator = userIterable.iterator();
         while (iterator.hasNext()) {
             User it = iterator.next();
-            userDTOList.add(new UserDTO(it.getUsername(), it.getPoste()));
+            userDTOList.add(new UserDTO(it.getFirstName(), it.getLastName(), it.getPoste(), it.getProfil()));
         }
 
         return userDTOList;
@@ -40,6 +40,10 @@ public class UserServiceImpl implements UserService {
     }
 
     private User getUserFromUserDTO(UserDTO userDTO) {
-        return new User(userDTO.getUsername(), passwordEncoder.encode(userDTO.getPassword()), userDTO.getRoles(), userDTO.getPoste());
+        return new User(getUsernameFromDTO(userDTO), userDTO.getFirstName(), userDTO.getLastName(), passwordEncoder.encode(userDTO.getPassword()), userDTO.getRoles(), userDTO.getPoste(), userDTO.getProfil());
+    }
+
+    private String getUsernameFromDTO(UserDTO userDTO) {
+        return userDTO.getFirstName() + " " + userDTO.getLastName();
     }
 }
